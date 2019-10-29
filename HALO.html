@@ -16,7 +16,13 @@
 </body>
 </html>
 <script>
-var C1 = "Check outside",
+    let storyContainer = document.getElementById("Story");
+    storyContainer.innerHTML = "In the far future, on a planet called Reach...";
+    let buttonContainer = document.getElementById("buttons");
+    for(let i = 0; i < 2; i++){
+        buttonContainer.appendChild(button);
+    }
+let C1 = "Check outside",
     C2 = "Make breakfast",
     C3 = "Go back to sleep",
     C4 = "Find the garage door",
@@ -50,10 +56,10 @@ var C1 = "Check outside",
     C32 = "Rejoin team",
     C33 = "Go home alone"                     
      
-var story = {
+const story = {
     start : {
         text : "",
-        choices : []
+        choices : [C1, C2, C3]
     },
     section5 : {
         text : "",
@@ -70,6 +76,10 @@ var story = {
 
 
 };
+
+for (let choice of story.start.choices)
+
+
 
 var choices = [];
 
