@@ -15,6 +15,9 @@
     </p>
 </body>
 </html>
+<div>
+    <div id = "buttons">
+</div>
 <script>
     let storyContainer = document.getElementById("Story");
     storyContainer.innerHTML = "In the far future, on a planet called Reach...";
@@ -77,23 +80,13 @@ const story = {
 
 };
 
-for (let choice of story.start.choices)
+for (let choice of story.start.choices){
+    makeButton(choice)
+}
+function makeButton(btntext){
+    let button = document.createElement("button");
 
+    button.innerHTML = btnText;
 
-
-var choices = [];
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = ("{$Ident}!");
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// 3. Add event handler
-button.addEventListener ("click", function() {
-  alert("did something");
-});
-
-test
+    buttonContainer.appendChild(button);
+}
