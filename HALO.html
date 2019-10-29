@@ -22,7 +22,7 @@
     let storyContainer = document.getElementById("Story");
     storyContainer.innerHTML = "In the far future, on a planet called Reach...";
     let buttonContainer = document.getElementById("buttons");
-    for(let i = 0; i < 2; i++){
+    for(let i = 0; i < 3; i++){
         buttonContainer.appendChild(button);
     }
 let C1 = "Check outside",
@@ -90,3 +90,15 @@ function makeButton(btntext){
 
     buttonContainer.appendChild(button);
 }
+function showStory(text){
+    let storyItem = document.createElement("p");
+
+    storyItem.innerText = text;
+
+    storyContainer.appendChild(storyItem);
+}
+
+showStory(story.start.text);
+
+
+</script>
