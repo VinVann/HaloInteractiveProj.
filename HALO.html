@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -13,17 +13,20 @@
     <p>
         An unoffcial sequel to the Halo series, created by Kyle Raymondo and Tabor Sands
     </p>
-</body>
-</html>
+
+<div id="story">
+
+</div>
 <div>
     <div id = "buttons">
 </div>
 <script>
-    let storyContainer = document.getElementById("Story");
+    let storyContainer = document.getElementById("story");
     storyContainer.innerHTML = "In the far future, on a planet called Reach...";
-    let buttonContainer = document.getElementById("buttons");
+    let buttonContainer = document.createElement("buttons");
     for(let i = 0; i < 3; i++){
-        buttonContainer.appendChild(button);
+        buttonContainer.innerHTML = "Jet wakes up in his country home, surrounded by fields of wheat and dirt roads. He looks around his room and is delighted by the sunlight creeping into his room";
+        document.body.appendChild(buttonContainer);
     }
 let C1 = "Check outside",
     C2 = "Make breakfast",
@@ -62,7 +65,11 @@ let C1 = "Check outside",
 const story = {
     start : {
         text : "",
-        choices : [C1, C2, C3]
+        choices : [
+            ["C1","Check outside"],
+            ["C2","Make breakfast"],
+            ["C3","Go back to sleep"]
+        ]
     },
     section5 : {
         text : "",
@@ -81,9 +88,9 @@ const story = {
 };
 
 for (let choice of story.start.choices){
-    makeButton(choice)
+    makeButton(choice[1])
 }
-function makeButton(btntext){
+function makeButton(btnText){
     let button = document.createElement("button");
 
     button.innerHTML = btnText;
@@ -102,3 +109,6 @@ showStory(story.start.text);
 
 
 </script>
+
+</body>
+</html>
