@@ -21,11 +21,38 @@
     <div id = "buttons">
 </div>
 <script>
+   const story = {
+    section : {
+        text : "Jet wakes up in his country home, surrounded by fields of wheat and dirt roads. He looks around his room and is delighted by the sunlight creeping into his room",
+        choices : [
+            ["C1","Check outside"],
+            ["C2","Make breakfast"],
+            ["C3","Go back to sleep"]
+        ]
+    },
+    section : {
+        text : "Jet notices a flood spore and locks the doors and windows",
+        choices : [
+            ["C4","Find the garage door"],
+            ["C5","Double check the doors and windows to make sure they are locked"]
+        ]
+    },
+    section : {
+        text : "",
+        choices : []
+    },
+    section : {
+        text : "",
+        choices : []
+    }
+
+
+}; 
     let storyContainer = document.getElementById("story");
     storyContainer.innerHTML = "In the far future, on a planet called Reach...";
     let buttonContainer = document.createElement("buttons");
     for(let i = 0; i < 3; i++){
-        buttonContainer.innerHTML = "Jet wakes up in his country home, surrounded by fields of wheat and dirt roads. He looks around his room and is delighted by the sunlight creeping into his room";
+        buttonContainer.innerHTML = story.section.text;
         document.body.appendChild(buttonContainer);
     }
 let C1 = "Check outside",
@@ -62,32 +89,7 @@ let C1 = "Check outside",
     C32 = "Rejoin team",
     C33 = "Go home alone"                     
      
-const story = {
-    start : {
-        text : "",
-        choices : [
-            ["C1","Check outside"],
-            ["C2","Make breakfast"],
-            ["C3","Go back to sleep"]
-        ]
-    },
-    section5 : {
-        text : "",
-        choices : []
-    },
-    section8 : {
-        text : "",
-        choices : []
-    },
-    section12 : {
-        text : "",
-        choices : []
-    }
-
-
-};
-
-for (let choice of story.start.choices){
+for (let choice of story.section.choices){
     makeButton(choice[1])
 }
 function makeButton(btnText){
@@ -96,6 +98,9 @@ function makeButton(btnText){
     button.innerHTML = btnText;
 
     buttonContainer.appendChild(button);
+
+    button.addEventListener("click", story.section.text);
+
 }
 function showStory(text){
     let storyItem = document.createElement("p");
@@ -105,7 +110,7 @@ function showStory(text){
     storyContainer.appendChild(storyItem);
 }
 
-showStory(story.start.text);
+showStory(story.section.text);
 
 
 </script>
