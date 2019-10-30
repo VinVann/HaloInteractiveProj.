@@ -22,7 +22,7 @@
 </div>
 <script>
    const story = {
-    section : {
+    start : {
         text : "Jet wakes up in his country home, surrounded by fields of wheat and dirt roads. He looks around his room and is delighted by the sunlight creeping into his room",
         choices : [
             ["C1","Check outside"],
@@ -30,18 +30,18 @@
             ["C3","Go back to sleep"]
         ]
     },
-    section : {
+    section5 : {
         text : "Jet notices a flood spore and locks the doors and windows",
         choices : [
             ["C4","Find the garage door"],
             ["C5","Double check the doors and windows to make sure they are locked"]
         ]
     },
-    section : {
+    section8 : {
         text : "",
         choices : []
     },
-    section : {
+    section12 : {
         text : "",
         choices : []
     }
@@ -52,7 +52,7 @@
     storyContainer.innerHTML = "In the far future, on a planet called Reach...";
     let buttonContainer = document.createElement("buttons");
     for(let i = 0; i < 3; i++){
-        buttonContainer.innerHTML = story.section.text;
+        buttonContainer.innerHTML = story.start.text;
         document.body.appendChild(buttonContainer);
     }
 let C1 = "Check outside",
@@ -88,8 +88,8 @@ let C1 = "Check outside",
     C31 = "Mourn the dead",
     C32 = "Rejoin team",
     C33 = "Go home alone"                     
-     
-for (let choice of story.section.choices){
+    
+for (let choice of story.start.choices){
     makeButton(choice[1])
 }
 function makeButton(btnText){
@@ -99,7 +99,7 @@ function makeButton(btnText){
 
     buttonContainer.appendChild(button);
 
-    button.addEventListener("click", story.section.text);
+    button.addEventListener("click", story.text);
 
 }
 function showStory(text){
@@ -110,7 +110,7 @@ function showStory(text){
     storyContainer.appendChild(storyItem);
 }
 
-showStory(story.section.text);
+showStory(story.start.text);
 
 
 </script>
