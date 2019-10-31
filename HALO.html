@@ -25,26 +25,67 @@
     start : {
         text : "Jet wakes up in his country home, surrounded by fields of wheat and dirt roads. He looks around his room and is delighted by the sunlight creeping into his room",
         choices : [
-            ["C1","Check outside"],
-            ["C2","Make breakfast"],
-            ["C3","Go back to sleep"]
+            ["section5","Check outside"],
+            ["section8","Make breakfast"],
+            ["section12","Go back to sleep"]
         ]
     },
     section5 : {
         text : "Jet notices a flood spore and locks the doors and windows",
         choices : [
-            ["C4","Find the garage door"],
-            ["C5","Double check the doors and windows to make sure they are locked"]
+            ["section15","Find the garage door"],
+            ["section15","Double check the doors and windows to make sure they are locked"]
         ]
     },
     section8 : {
-        text : "",
-        choices : []
+        text : "Single flood spore makes it into home due to time wasted, Jet injured trying to escape; spore killed",
+        choices : [
+            ["section15","Finds something to patch himself up"],
+            ["section19","Holds his wound"],
+            ["section22","Stay on the ground in pain"]
+        ]
     },
     section12 : {
-        text : "",
-        choices : []
-    }
+        text : "Jet is overrun by unseen flood spores, manages to escape, but no access to armor or transportation",
+        choices : [
+            ["section24","Find somewhere to hide"],
+            ["section26","Run outside "]
+        ]
+    },
+    section15 : {
+        text : "He finds the garage door after searching for it, but it's locked by a 3-digit padlock. Jet needs to enter a code",
+        choices : [
+            ["section27","Enter '117'"],
+            ["section30","Enter '255'"],
+            ["section30","Enter '343'"]
+        ]
+    },
+    section19 : {
+        text : "He rips his shirt to make a tourniquet to stop the bleeding",
+        choices : [
+            ["section38","Call for help on your handheld radio"],
+            ["section31","Fight back"]
+        ]
+    },
+    section22 : {
+        text : "Jet gets up slowly",
+        choices : [
+            ["section23"]
+        ]
+    },
+    section24 : {
+        text : "He hides in his room and locks the door...",
+        choices : [
+            ["section33"]
+        ]
+    },
+    section26 : {
+        text : "Unaware of the approaching spore mob, Jet gets overrun, killed, and transformed into a lifeless, zombie-like organism\n\nYou have found ending number one, The Tragic Ending. \n\nRefresh browser to restart"
+    },
+    section23 : {
+        text : "Jet faints"
+    },
+
 
 
 }; 
@@ -55,6 +96,8 @@
         buttonContainer.innerHTML = story.start.text;
         document.body.appendChild(buttonContainer);
     }
+    let storage = ["start"];
+
 let C1 = "Check outside",
     C2 = "Make breakfast",
     C3 = "Go back to sleep",
@@ -89,20 +132,33 @@ let C1 = "Check outside",
     C32 = "Rejoin team",
     C33 = "Go home alone"                     
     
-for (let choice of story.start.choices){
-    makeButton(choice[1])
-}
-function makeButton(btnText){
+
+
+function makeButton(btnText, choice){
     let button = document.createElement("button");
 
     button.innerHTML = btnText;
 
     buttonContainer.appendChild(button);
 
-    button.addEventListener("click", story.text);
-
+    button.addEventListener("click", function(){
+        storage.push(choice);
+        printStory();
+    });
 }
-function showStory(text){
+
+function printStory(text) {
+    let pageNow = storage[storage.length - 1];
+    storyContainer.innerHTML = "";
+    buttonContainer.innerHTML = "";
+    for(let page of storage){
+        createStory(story[page].text);
+    }
+    for (let choice of story[pageNow].choices){
+    makeButton(choice[1], choice[0])
+    }
+}
+function createStory(text){
     let storyItem = document.createElement("p");
 
     storyItem.innerText = text;
@@ -110,7 +166,7 @@ function showStory(text){
     storyContainer.appendChild(storyItem);
 }
 
-showStory(story.start.text);
+printStory(story.start.text);
 
 
 </script>
