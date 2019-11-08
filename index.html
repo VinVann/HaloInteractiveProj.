@@ -20,6 +20,7 @@
 </div>
 </div>
 <script>
+    //Above code sets the visuals of the website
    const story = {
     start : {
         text : "Jet wakes up in his country home, surrounded by fields of wheat and dirt roads. He looks around his room and is delighted by the sunlight creeping into his room",
@@ -195,11 +196,7 @@
     sectionBuck : {
         text : ["Jet mourns the death of Buck\n\nHe could not protect him\n\nThe flood overtake Jet, but he did not mind, for he had lost all hope..."]
     }
-
-
-
-
-
+// Above code is the body of the code, they are the containers that hold the text, and the corresponding choices
 }; 
     let storyContainer = document.getElementById("story");
     storyContainer.innerHTML = "In the far future, on a planet called Reach...";
@@ -209,42 +206,7 @@
         document.body.appendChild(buttonContainer);
     }
     let storage = ["start"];
-
-let C1 = "Check outside",
-    C2 = "Make breakfast",
-    C3 = "Go back to sleep",
-    C4 = "Find the garage door",
-    C5 = "Double check the doors and windows to make sure they are locked",
-    C6 = "Find something to patch up the wound",
-    C7 = "Hold the wound",
-    C8 = "Stay on the ground in pain",
-    C9 = "Find somewhere to hide",
-    C10 = "Run outside",
-    C11 = "Enter '117'",
-    C12 = "Enter '255'",
-    C13 = "Enter '343'",
-    C14 = "Call for help with the handheld radio",
-    C15 = "Fight back",
-    C16 = "Check for armor",
-    C17 = "Explore under large gray tarp",
-    C18 = "Suit up in better armor and grab weapons",
-    C19 = "Decide to search for father, John",
-    C20 = "Join spartan team in the tank",
-    C21 = "Take Mongoose ATV, alone",
-    C22 = "Tell team you are leaving",
-    C23 = "Don't tell team you are leaving",
-    C24 = "Hold your ground, fight back",
-    C25 = "Run away",
-    C26 = "Keep driving",
-    C27 = "Stop and fight the horde",
-    C28 = "Run with Buck around the horde",
-    C29 = "Fight the horde head on with Buck",
-    C30 = "Search for survivors"
-    C31 = "Mourn the dead",
-    C32 = "Rejoin team",
-    C33 = "Go home alone"                     
-    
-
+    //above code creates the button and story entities, and tells the computer how many should be made
 
 function makeButton(btnText, choice){
     let button = document.createElement("button");
@@ -258,6 +220,7 @@ function makeButton(btnText, choice){
         printStory();
     });
 }
+//above code links the Choice IDs with the button entities
 
 function printStory(text) {
     let pageNow = storage[storage.length - 1];
@@ -270,6 +233,7 @@ function printStory(text) {
     makeButton(choice[1], choice[0])
     }
 }
+//above code prints corresponding text and clears the button and story containers so they can be used repeatedly
 function createStory(text){
     let storyItem = document.createElement("p");
 
@@ -277,9 +241,10 @@ function createStory(text){
 
     storyContainer.appendChild(storyItem);
 }
+//above code links text IDs to the story containers
 
 printStory(story.start.text);
-
+//above code prints an executes the story
 
 </script>
 <p><a color="white" href="https://www.halowaypoint.com/en-us">Visit the official Halo website</a></p>
